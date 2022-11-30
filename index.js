@@ -13,4 +13,29 @@ var rotate = function (nums, k) {
     nums[i] = copy[i];
   }
 };
-//Brute force
+//Big O of n O(n) and space complexity of 0(n)
+
+
+
+//Reverse Method
+var rotate = function(nums, k) {
+  k = k % nums.length;
+  reverse(nums, 0, nums.length - 1);
+  reverse(nums, 0, k - 1);
+  reverse(nums, k, nums.length - 1);
+  return nums;
+
+  function reverse(nums, start, end) {
+    while (start < end) {
+      let temporary = nums[start];
+      nums[start] = nums[end];
+      nums[end] = temporary;
+      start++;
+      end--;
+    }
+    return nums;
+  }
+}
+
+// Big O of n O(n) and space complexity of 1 O(1)
+
